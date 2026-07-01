@@ -1000,3 +1000,44 @@ body.lang-te span.en { display: none; }
   text-align: center;
   margin-bottom: 4px;
 }
+
+/* ── GURU CARD ── */
+.guru-card {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  background: linear-gradient(135deg, #FFF8EE 0%, #FFF2D8 100%);
+  border: 1px solid rgba(201,146,42,0.35);
+  border-left: 4px solid var(--crimson);
+  border-radius: 8px;
+  padding: 20px;
+  flex-wrap: wrap;
+}
+.guru-photo {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid var(--gold);
+  flex-shrink: 0;
+}
+.guru-info { flex: 1; min-width: 200px; }
+.guru-title-te {
+  font-family: 'Noto Serif Telugu', serif;
+  font-size: 13px;
+  color: var(--text-mid);
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+.guru-name-te {
+  font-family: 'Noto Serif Telugu', serif;
+  font-size: 20px;
+  color: var(--crimson);
+  font-weight: 700;
+  margin-bottom: 4px;
+  line-height: 1.4;
+}
+.guru-name-en { font-size: 14px; color: var(--text-mid); }
+@media (max-width: 540px) {
+  .guru-card { flex-direction: column; text-align: center; }
+}
