@@ -6,6 +6,22 @@ function setLang(lang) {
   });
 }
 
+function toggleNavMenu() {
+  const menu = document.getElementById('navMenu');
+  const toggle = document.querySelector('.nav-toggle');
+  if (!menu) return;
+  const open = menu.classList.toggle('open');
+  if (toggle) toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+}
+
+(function initNavAutoClose() {
+  const menu = document.getElementById('navMenu');
+  if (!menu) return;
+  menu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => menu.classList.remove('open'));
+  });
+})();
+
 function closePopup() {
   const overlay = document.getElementById('promoPopup');
   if (overlay) overlay.classList.remove('open');

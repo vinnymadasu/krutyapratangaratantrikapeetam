@@ -10,7 +10,6 @@
 </head>
 <body class="lang-te">
 
-<!-- Language Bar -->
 <div class="lang-bar">
   <span>భాష / Language:</span>
   <button class="lang-btn active" onclick="setLang('te')">తెలుగు</button>
@@ -22,32 +21,45 @@
     <img src="assets/logo.svg" alt="Peetam Logo" class="logo-mark">
     <span>శ్రీ కృత్య ప్రత్యంగిర తాంత్రిక పీఠం</span>
   </div>
-  <div class="nav-links">
-    <a href="index.html" class="nav-link"><span class="te">హోమ్</span><span class="en">Home</span></a>
-    <a href="about.html" class="nav-link"><span class="te">గురించి</span><span class="en">About</span></a>
-    <a href="services.html" class="nav-link"><span class="te">సేవలు</span><span class="en">Services</span></a>
-    <a href="gallery.html" class="nav-link"><span class="te">గ్యాలరీ</span><span class="en">Gallery</span></a>
-    <a href="contact.html" class="nav-link"><span class="te">సంప్రదించండి</span><span class="en">Contact</span></a>
-    <a href="booking.html" class="nav-link nav-cta">🙏 <span class="te">నమోదు చేయండి</span><span class="en">Book Now</span></a>
-  </div>
-  <div class="nav-socials">
-    <a class="social-icon" href="https://www.instagram.com/komanduriseshu?igsh=dWFnZWNvYXh4MmV5" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-      <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 2 .2 2.5.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.5.3 1.3.4 2.5.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 2-.4 2.5-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.5.2-1.3.3-2.5.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-2-.2-2.5-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.5-.3-1.3-.4-2.5C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-2 .4-2.5.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.5-.2 1.3-.3 2.5-.4C8.4 2.2 8.8 2.2 12 2.2zm0 4.3a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11zm0 1.8a3.7 3.7 0 1 1 0 7.4 3.7 3.7 0 0 1 0-7.4zm5.7-2a1.3 1.3 0 1 1-2.6 0 1.3 1.3 0 0 1 2.6 0z"/></svg>
-    </a>
-    <a class="social-icon" href="https://www.youtube.com/@kruthyatvteleguoofficial" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-      <svg viewBox="0 0 24 24"><path d="M22.5 6.2a2.8 2.8 0 0 0-2-2C18.7 3.7 12 3.7 12 3.7s-6.7 0-8.5.5a2.8 2.8 0 0 0-2 2A29 29 0 0 0 1 12a29 29 0 0 0 .5 5.8 2.8 2.8 0 0 0 2 2c1.8.5 8.5.5 8.5.5s6.7 0 8.5-.5a2.8 2.8 0 0 0 2-2A29 29 0 0 0 23 12a29 29 0 0 0-.5-5.8zM9.8 15.5v-7l6 3.5-6 3.5z"/></svg>
-    </a>
+  <button class="nav-toggle" aria-label="Menu" aria-expanded="false" onclick="toggleNavMenu()">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-menu" id="navMenu">
+    <div class="nav-links">
+      <a href="index.html" class="nav-link"><span class="te">హోమ్</span><span class="en">Home</span></a>
+      <a href="about.html" class="nav-link"><span class="te">గురించి</span><span class="en">About</span></a>
+      <a href="services.html" class="nav-link"><span class="te">సేవలు</span><span class="en">Services</span></a>
+      <a href="gallery.html" class="nav-link"><span class="te">గ్యాలరీ</span><span class="en">Gallery</span></a>
+      <a href="contact.html" class="nav-link"><span class="te">సంప్రదించండి</span><span class="en">Contact</span></a>
+      <a href="booking.html" class="nav-link nav-cta">🙏 <span class="te">నమోదు చేయండి</span><span class="en">Book Now</span></a>
+    </div>
+    <div class="nav-socials">
+      <a class="social-icon" href="https://www.instagram.com/komanduriseshu?igsh=dWFnZWNvYXh4MmV5" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 2 .2 2.5.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.5.3 1.3.4 2.5.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 2-.4 2.5-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.5.2-1.3.3-2.5.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-2-.2-2.5-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.5-.3-1.3-.4-2.5C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-2 .4-2.5.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.5-.2 1.3-.3 2.5-.4C8.4 2.2 8.8 2.2 12 2.2zm0 4.3a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11zm0 1.8a3.7 3.7 0 1 1 0 7.4 3.7 3.7 0 0 1 0-7.4zm5.7-2a1.3 1.3 0 1 1-2.6 0 1.3 1.3 0 0 1 2.6 0z"/></svg>
+      </a>
+      <a class="social-icon" href="https://www.youtube.com/@kruthyatvteleguoofficial" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+        <svg viewBox="0 0 24 24"><path d="M22.5 6.2a2.8 2.8 0 0 0-2-2C18.7 3.7 12 3.7 12 3.7s-6.7 0-8.5.5a2.8 2.8 0 0 0-2 2A29 29 0 0 0 1 12a29 29 0 0 0 .5 5.8 2.8 2.8 0 0 0 2 2c1.8.5 8.5.5 8.5.5s6.7 0 8.5-.5a2.8 2.8 0 0 0 2-2A29 29 0 0 0 23 12a29 29 0 0 0-.5-5.8zM9.8 15.5v-7l6 3.5-6 3.5z"/></svg>
+      </a>
+    </div>
   </div>
 </nav>
 
-<!-- Header -->
 <header>
   <div class="header-inner">
     <div class="om-symbol">ॐ</div>
     <div class="peetam-name-te">శ్రీ కృత్య ప్రత్యంగిర తాంత్రిక పీఠం</div>
     <div class="peetam-name-en">Shri Krutya Pratangira Tantrika Peetam</div>
+    <div class="guru-name">
+      <div class="te">గురువు: శ్రీ శ్రీ శ్రీ సదపూర్ణి కృత్య ఆనందం తంత్రి అయ్యర్</div>
+      <div class="en">Guru: Sri Sri Sri Sadapurni Krutya Anandam Tantri Ayyar</div>
+    </div>
+    <div class="location-tag">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+      నాదర్గుల్, హైదరాబాద్ &nbsp;|&nbsp; Nadargul, Hyderabad
+    </div>
   </div>
 </header>
+
 
 <div class="payment-wrap">
   <div class="payment-card">
@@ -64,17 +76,12 @@
       <span class="en">💰 Our team will contact you by phone shortly to collect the payment. For any queries, call <strong>📞 6303701032</strong>.</span>
     </div>
 
-    <div style="text-align:center;">
+    <div class="text-center">
       <a class="back-link" href="index.html">&larr; <span class="te">హోమ్‌కి తిరిగి వెళ్ళండి</span><span class="en">Back to Home</span></a>
     </div>
   </div>
 </div>
 
-<footer>
-  © 2026 శ్రీ కృత్య ప్రత్యంగిర తాంత్రిక పీఠం | Shri Krutya Pratangira Tantrika Peetam, Hyderabad &nbsp;|&nbsp; 🔱 జయ వారాహి మాత 🔱
-</footer>
-
-<script src="js/site.js"></script>
 <script>
   function esc(str) {
     const div = document.createElement('div');
@@ -112,5 +119,32 @@
     box.innerHTML = rows;
   })();
 </script>
+
+
+<div class="contact-strip">
+  <p class="te">అధిక వివరాలకు, వామాచార హోమ విధానం గురించి సంప్రదించడానికి:</p>
+  <p class="en">For more details or Vamachara Homa enquiries, contact us:</p>
+  <br>
+  <a href="tel:6303701032" class="phone">📞 6303701032</a>
+  <br><br>
+  <div class="social-row">
+    <a href="https://www.instagram.com/komanduriseshu?igsh=dWFnZWNvYXh4MmV5" target="_blank" rel="noopener noreferrer" class="footer-social-link">📷 Instagram</a>
+    <a href="https://www.youtube.com/@kruthyatvteleguoofficial" target="_blank" rel="noopener noreferrer" class="footer-social-link">▶️ YouTube</a>
+  </div>
+  <br>
+  <p class="address-line-gold">శ్రీ కృత్య ప్రత్యంగిర తాంత్రిక పీఠం, నాదర్గుల్, హైదరాబాద్</p>
+  <p class="address-line-sub">Shri Krutya Pratangira Tantrika Peetam, Nadargul, Hyderabad</p>
+</div>
+
+<footer>
+  © 2026 శ్రీ కృత్య ప్రత్యంగిర తాంత్రిక పీఠం | Shri Krutya Pratangira Tantrika Peetam, Hyderabad &nbsp;|&nbsp; 🔱 జయ వారాహి మాత 🔱
+</footer>
+
+
+
+
+
+<script src="js/site.js"></script>
+
 </body>
 </html>

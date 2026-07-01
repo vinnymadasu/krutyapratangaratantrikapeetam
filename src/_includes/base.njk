@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ title }}</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Telugu:wght@400;600;700&family=Noto+Sans+Telugu:wght@300;400;600&family=Cinzel+Decorative:wght@400;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="lang-te">
+
+<div class="lang-bar">
+  <span>భాష / Language:</span>
+  <button class="lang-btn active" onclick="setLang('te')">తెలుగు</button>
+  <button class="lang-btn" onclick="setLang('en')">English</button>
+</div>
+
+{% include "nav.njk" %}
+{% include "header.njk" %}
+
+{{ content | safe }}
+
+{% include "footer.njk" %}
+
+{% if showPopup %}{% include "popup.njk" %}{% endif %}
+
+{% if needsBooking %}<script src="js/supabase-config.js"></script>{% endif %}
+<script src="js/site.js"></script>
+{% if needsBooking %}<script src="js/booking.js"></script>{% endif %}
+</body>
+</html>

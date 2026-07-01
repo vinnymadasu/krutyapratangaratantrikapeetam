@@ -615,8 +615,7 @@ body.lang-te span.en { display: none; }
   display: flex;
   align-items: center;
   gap: 18px;
-  flex-wrap: wrap;
-  justify-content: center;
+  position: relative;
 }
 .nav-brand {
   display: flex;
@@ -630,6 +629,26 @@ body.lang-te span.en { display: none; }
   font-size: 14px;
   color: var(--bright-gold);
 }
+
+/* Hamburger toggle - hidden on desktop, shown on mobile */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  background: transparent;
+  border: 1px solid var(--gold);
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 0;
+}
+.nav-toggle span { display: block; width: 18px; height: 2px; background: var(--gold); }
+
+.nav-menu { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
 .nav-links { display: flex; gap: 4px; flex-wrap: wrap; align-items: center; }
 .nav-link {
   color: var(--ash);
@@ -649,24 +668,45 @@ body.lang-te span.en { display: none; }
   padding: 7px 16px !important;
 }
 .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 14px rgba(240,192,64,0.4); }
-.nav-socials { display: flex; gap: 10px; align-items: center; margin-left: 8px; }
+.nav-socials { display: flex; gap: 10px; align-items: center; }
 .social-icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 28px;
-  height: 28px;
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
   border-radius: 50%;
   border: 1px solid var(--gold);
   color: var(--gold);
   transition: background 0.2s, color 0.2s;
 }
 .social-icon:hover { background: var(--gold); color: var(--deep-crimson); }
-.social-icon svg { width: 15px; height: 15px; fill: currentColor; }
+.social-icon svg { width: 16px; height: 16px; fill: currentColor; }
+.social-icon.lg { width: 44px; height: 44px; }
+.social-icon.lg svg { width: 22px; height: 22px; }
 
 @media (max-width: 640px) {
-  .site-nav { justify-content: center; }
-  .nav-brand { margin-right: 0; width: 100%; justify-content: center; }
+  .nav-toggle { display: flex; }
+  .nav-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--warm-dark);
+    border-bottom: 2px solid var(--gold);
+    flex-direction: column;
+    align-items: stretch;
+    padding: 12px 20px 16px;
+    gap: 10px;
+    z-index: 500;
+  }
+  .nav-menu.open { display: flex; }
+  .nav-links { flex-direction: column; align-items: stretch; gap: 2px; }
+  .nav-link { text-align: center; }
+  .nav-cta { text-align: center; }
+  .nav-socials { justify-content: center; padding-top: 10px; border-top: 1px solid rgba(201,146,42,0.25); }
 }
 
 /* ── POPUP ── */
@@ -819,3 +859,46 @@ body.lang-te span.en { display: none; }
   transition: all 0.2s;
 }
 .directions-link:hover { background: var(--crimson); color: white; }
+
+/* ── LAYOUT HELPERS (replace one-off inline styles) ── */
+.text-center { text-align: center; }
+.teaser-link { text-align: center; margin-top: 14px; }
+.btn-cta-link {
+  display: inline-block;
+  text-decoration: none;
+  width: auto;
+  padding: 14px 40px;
+  margin-top: 14px;
+}
+.service-card.featured { border-color: var(--gold); background: linear-gradient(135deg,#FFF8EE,#FFF2D8); }
+.service-card.rathotsavam { border-color: var(--crimson); }
+.poster-img {
+  width: 100%;
+  max-width: 520px;
+  display: block;
+  margin: 20px auto 0;
+  border-radius: 8px;
+  border: 1px solid rgba(201,146,42,0.35);
+}
+.address-line-gold {
+  color: var(--gold);
+  font-family: 'Noto Serif Telugu', serif;
+  font-size: 14px;
+}
+.address-line-sub {
+  font-size: 12px;
+  opacity: 0.6;
+  margin-top: 4px;
+}
+.social-row {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.footer-social-link {
+  color: var(--bright-gold);
+  text-decoration: none;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
