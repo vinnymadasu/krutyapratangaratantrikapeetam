@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>నమోదు నిర్ధారణ | Booking Confirmation - Krutya Pratangira Tantrika Peetam</title>
+<title>Both Morning &amp;amp; Evening Homams (Combined) | Krutya Pratangira Tantrika Peetam</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Telugu:wght@400;600;700&family=Noto+Sans+Telugu:wght@300;400;600&family=Cinzel+Decorative:wght@400;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
 <link rel="stylesheet" href="css/style.css">
@@ -31,7 +31,7 @@
     <div class="nav-links">
       <a href="index.html" class="nav-link"><span class="te">హోమ్</span><span class="en">Home</span></a>
       <a href="about.html" class="nav-link"><span class="te">గురించి</span><span class="en">About</span></a>
-      <a href="services.html" class="nav-link"><span class="te">సేవలు</span><span class="en">Services</span></a>
+      <a href="services.html" class="nav-link active"><span class="te">సేవలు</span><span class="en">Services</span></a>
       <a href="gallery.html" class="nav-link"><span class="te">గ్యాలరీ</span><span class="en">Gallery</span></a>
       <a href="contact.html" class="nav-link"><span class="te">సంప్రదించండి</span><span class="en">Contact</span></a>
       <a href="booking.html" class="nav-link nav-cta">🙏 <span class="te">నమోదు చేయండి</span><span class="en">Book Now</span></a>
@@ -64,64 +64,97 @@
 </header>
 
 
-<div class="payment-wrap">
-  <div class="payment-card">
-    <h2>🪷 <span class="te">నమోదు నిర్ధారణ</span><span class="en">Booking Confirmation</span></h2>
-    <p class="sub te">మీ వివరాలు విజయవంతంగా నమోదు చేయబడ్డాయి</p>
-    <p class="sub en">Your details have been saved successfully</p>
+<main>
 
-    <div class="summary-box" id="summaryBox">
-      <!-- Filled in by JS -->
+  <!-- SERVICE DETAILS -->
+  <section>
+    <div class="section-header">
+      <div class="section-icon">🌺</div>
+      <div class="section-heading">
+        <span class="te">ఉదయం + సాయంత్రం రెండు హోమాలు (కలిపి)</span>
+        <span class="en">Both Morning &amp; Evening Homams (Combined)</span>
+      </div>
+      <div class="section-rule"></div>
     </div>
 
-    <div class="pending-note">
-      <span class="te">💰 చెల్లింపు కోసం మా బృందం త్వరలో మీకు ఫోన్ ద్వారా సంప్రదిస్తుంది. ఏవైనా సందేహాలుంటే <strong>📞 6303701032</strong> కి కాల్ చేయండి.</span>
-      <span class="en">💰 Our team will contact you by phone shortly to collect the payment. For any queries, call <strong>📞 6303701032</strong>.</span>
+    <div class="service-card featured" style="cursor:default; max-width:460px; margin-bottom:18px;">
+      <div class="price">₹6,116/- <span>/ రోజు</span></div>
+      <div class="name-te">ఉదయం + సాయంత్రం రెండు హోమాలు (కలిపి)</div>
+      <div class="name-en">Both Morning &amp; Evening Homams (Combined)</div>
+      <div class="tag tag-homa">🌟 బెస్ట్ వాల్యూ</div>
     </div>
 
-    <div class="text-center">
-      <a class="back-link" href="index.html">&larr; <span class="te">హోమ్‌కి తిరిగి వెళ్ళండి</span><span class="en">Back to Home</span></a>
+    <div class="diksha-card">
+      <p class="te">ఉదయం మరియు సాయంత్రం రెండు హోమాలను కలిపి చేయించుకోవాలనుకునే భక్తుల కోసం ప్రత్యేక ప్యాకేజీ.</p>
+      <p class="en">A combined package for devotees who wish to sponsor both the morning and evening homams together.</p>
     </div>
-  </div>
-</div>
 
-<script>
-  function esc(str) {
-    const div = document.createElement('div');
-    div.textContent = str == null ? '' : String(str);
-    return div.innerHTML;
-  }
+    <p class="teaser-link">
+      <a href="services.html" class="directions-link"><span class="te">← అన్ని సేవలకు తిరిగి వెళ్ళండి</span><span class="en">← Back to All Services</span></a>
+    </p>
+  </section>
 
-  (function renderSummary() {
-    const raw = sessionStorage.getItem('krutyaBooking');
-    const box = document.getElementById('summaryBox');
-    if (!raw) {
-      box.innerHTML = '<p class="te" style="color:var(--ash);">నమోదు వివరాలు కనబడలేదు. దయచేసి ఫారం మళ్ళీ నింపండి.</p>' +
-                      '<p class="en" style="color:var(--ash);">No booking details found. Please fill the form again.</p>';
-      return;
-    }
-    const booking = JSON.parse(raw);
+  <!-- BOOKING FORM -->
+  <section>
+    <div class="booking-section">
+      <h2>🪷 <span class="te">ఈ సేవను నమోదు చేసుకోండి</span><span class="en">Book This Seva</span></h2>
+      <p class="sub te">దయచేసి మీ వివరాలు నమోదు చేయండి</p>
+      <p class="sub en">Please fill in your details to register</p>
 
-    let rows = '';
-    rows += `<div class="summary-row"><span class="k">పేరు / Name</span><span class="v">${esc(booking.name)}</span></div>`;
-    rows += `<div class="summary-row"><span class="k">మొబైల్ / Phone</span><span class="v">${esc(booking.phone)}</span></div>`;
-    if (booking.city) {
-      rows += `<div class="summary-row"><span class="k">ఊరు / City</span><span class="v">${esc(booking.city)}</span></div>`;
-    }
-    rows += `<div class="summary-row"><span class="k">పాల్గొనే విధానం / Participation</span><span class="v">${esc(booking.participation_type)}</span></div>`;
+      <div class="form-grid" id="bookingForm"
+           data-service-te="ఉదయం + సాయంత్రం రెండు హోమాలు (కలిపి)"
+           data-service-en="Both Morning &amp; Evening Homams (Combined)"
+           data-price="6116">
+        <div class="form-group">
+          <label>
+            <span class="label-te">మీ పేరు *</span>
+            <span class="en" style="color:var(--ash);font-size:11px;letter-spacing:0.8px;text-transform:uppercase;">Full Name *</span>
+          </label>
+          <input type="text" id="name" placeholder="పేరు నమోదు చేయండి / Enter name" required>
+        </div>
+        <div class="form-group">
+          <label>
+            <span class="label-te">మొబైల్ నంబర్ *</span>
+            <span class="en" style="color:var(--ash);font-size:11px;letter-spacing:0.8px;text-transform:uppercase;">Mobile Number *</span>
+          </label>
+          <input type="tel" id="phone" placeholder="10 అంకెలు / 10 digits" maxlength="10" required>
+        </div>
+        <div class="form-group">
+          <label>
+            <span class="label-te">మీ ఊరు / నగరం</span>
+            <span class="en" style="color:var(--ash);font-size:11px;letter-spacing:0.8px;text-transform:uppercase;">City / Town</span>
+          </label>
+          <input type="text" id="city" placeholder="City">
+        </div>
+        <div class="form-group">
+          <label>
+            <span class="label-te">గమనికలు / ప్రత్యేక అభ్యర్థనలు</span>
+            <span class="en" style="color:var(--ash);font-size:11px;letter-spacing:0.8px;text-transform:uppercase;">Notes / Special Requests</span>
+          </label>
+          <input type="text" id="notes" placeholder="ఏదైనా ప్రత్యేక విషయాలు / Any special notes...">
+        </div>
 
-    if (booking.services && booking.services.length) {
-      const names = booking.services.map(s => (document.body.className === 'lang-en' ? s.name_en : s.name_te)).join(', ');
-      rows += `<div class="summary-row"><span class="k">అదనపు సేవలు / Extra Sevas</span><span class="v">${esc(names)}</span></div>`;
-    }
-    if (booking.notes) {
-      rows += `<div class="summary-row"><span class="k">గమనికలు / Notes</span><span class="v">${esc(booking.notes)}</span></div>`;
-    }
-    rows += `<div class="summary-row total-row"><span class="k">మొత్తం / Total Amount</span><span class="v">₹${Number(booking.total_amount).toLocaleString('en-IN')}/-</span></div>`;
+        <div class="amount-summary">
+          <span class="label-te">మొత్తం / Total Amount:</span>
+          <span class="total">₹6,116/-</span>
+        </div>
 
-    box.innerHTML = rows;
-  })();
-</script>
+        <button class="submit-btn" id="submitBtn" onclick="submitServiceBooking()">
+          <span class="te">🙏 నమోదు చేయండి</span>
+          <span class="en">🙏 Register Now</span>
+        </button>
+
+        <div class="error-msg" id="errorMsg"></div>
+
+        <div class="success-msg" id="successMsg">
+          ✅ <span class="te">మీ నమోదు విజయవంతమైంది! మా బృందం మీకు త్వరలో సంప్రదిస్తుంది. 📞 6303701032</span>
+          <span class="en">Your registration is successful! Our team will contact you soon. 📞 6303701032</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
 
 
 <div class="contact-strip">
@@ -148,9 +181,9 @@
 
 
 
-
+<script src="js/supabase-config.js"></script>
 <script src="js/site.js"></script>
 
-
+<script src="js/service-booking.js"></script>
 </body>
 </html>

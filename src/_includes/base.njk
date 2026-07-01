@@ -28,8 +28,9 @@
 
 {% if showPopup %}{% include "popup.njk" %}{% endif %}
 
-{% if needsBooking %}<script src="js/supabase-config.js"></script>{% endif %}
+{% if needsBooking or needsServiceBooking %}<script src="js/supabase-config.js"></script>{% endif %}
 <script src="js/site.js"></script>
 {% if needsBooking %}<script src="js/booking.js"></script>{% endif %}
+{% if needsServiceBooking %}<script src="js/service-booking.js"></script>{% endif %}
 </body>
 </html>

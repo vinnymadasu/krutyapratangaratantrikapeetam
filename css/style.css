@@ -267,6 +267,11 @@ section + section { border-top: 1px solid rgba(201,146,42,0.2); }
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 14px;
 }
+.service-card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
 .service-card {
   background: white;
   border: 1px solid rgba(201,146,42,0.25);

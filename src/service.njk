@@ -1,0 +1,103 @@
+---
+pagination:
+  data: services
+  size: 1
+  alias: service
+permalink: "{{ service.slug }}.html"
+layout: base.njk
+navPage: services
+needsServiceBooking: true
+eleventyComputed:
+  title: "{{ service.nameEn }} | Krutya Pratangira Tantrika Peetam"
+---
+<main>
+
+  <!-- SERVICE DETAILS -->
+  <section>
+    <div class="section-header">
+      <div class="section-icon">🌺</div>
+      <div class="section-heading">
+        <span class="te">{{ service.nameTe }}</span>
+        <span class="en">{{ service.nameEn }}</span>
+      </div>
+      <div class="section-rule"></div>
+    </div>
+
+    <div class="service-card{% if service.featured %} featured{% endif %}" style="cursor:default; max-width:460px; margin-bottom:18px;">
+      <div class="price">₹{{ service.price | inr }}/- <span>{{ service.unitTe }}</span></div>
+      <div class="name-te">{{ service.nameTe }}</div>
+      <div class="name-en">{{ service.nameEn }}</div>
+      <div class="tag {{ service.tagClass }}">{{ service.tagTe }}</div>
+    </div>
+
+    <div class="diksha-card">
+      <p class="te">{{ service.descTe }}</p>
+      <p class="en">{{ service.descEn }}</p>
+    </div>
+
+    <p class="teaser-link">
+      <a href="services.html" class="directions-link"><span class="te">← అన్ని సేవలకు తిరిగి వెళ్ళండి</span><span class="en">← Back to All Services</span></a>
+    </p>
+  </section>
+
+  <!-- BOOKING FORM -->
+  <section>
+    <div class="booking-section">
+      <h2>🪷 <span class="te">ఈ సేవను నమోదు చేసుకోండి</span><span class="en">Book This Seva</span></h2>
+      <p class="sub te">దయచేసి మీ వివరాలు నమోదు చేయండి</p>
+      <p class="sub en">Please fill in your details to register</p>
+
+      <div class="form-grid" id="bookingForm"
+           data-service-te="{{ service.nameTe }}"
+           data-service-en="{{ service.nameEn }}"
+           data-price="{{ service.price }}">
+        <div class="form-group">
+          <label>
+            <span class="label-te">మీ పేరు *</span>
+            <span class="en" style="color:var(--ash);font-size:11px;letter-spacing:0.8px;text-transform:uppercase;">Full Name *</span>
+          </label>
+          <input type="text" id="name" placeholder="పేరు నమోదు చేయండి / Enter name" required>
+        </div>
+        <div class="form-group">
+          <label>
+            <span class="label-te">మొబైల్ నంబర్ *</span>
+            <span class="en" style="color:var(--ash);font-size:11px;letter-spacing:0.8px;text-transform:uppercase;">Mobile Number *</span>
+          </label>
+          <input type="tel" id="phone" placeholder="10 అంకెలు / 10 digits" maxlength="10" required>
+        </div>
+        <div class="form-group">
+          <label>
+            <span class="label-te">మీ ఊరు / నగరం</span>
+            <span class="en" style="color:var(--ash);font-size:11px;letter-spacing:0.8px;text-transform:uppercase;">City / Town</span>
+          </label>
+          <input type="text" id="city" placeholder="City">
+        </div>
+        <div class="form-group">
+          <label>
+            <span class="label-te">గమనికలు / ప్రత్యేక అభ్యర్థనలు</span>
+            <span class="en" style="color:var(--ash);font-size:11px;letter-spacing:0.8px;text-transform:uppercase;">Notes / Special Requests</span>
+          </label>
+          <input type="text" id="notes" placeholder="ఏదైనా ప్రత్యేక విషయాలు / Any special notes...">
+        </div>
+
+        <div class="amount-summary">
+          <span class="label-te">మొత్తం / Total Amount:</span>
+          <span class="total">₹{{ service.price | inr }}/-</span>
+        </div>
+
+        <button class="submit-btn" id="submitBtn" onclick="submitServiceBooking()">
+          <span class="te">🙏 నమోదు చేయండి</span>
+          <span class="en">🙏 Register Now</span>
+        </button>
+
+        <div class="error-msg" id="errorMsg"></div>
+
+        <div class="success-msg" id="successMsg">
+          ✅ <span class="te">మీ నమోదు విజయవంతమైంది! మా బృందం మీకు త్వరలో సంప్రదిస్తుంది. 📞 6303701032</span>
+          <span class="en">Your registration is successful! Our team will contact you soon. 📞 6303701032</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
