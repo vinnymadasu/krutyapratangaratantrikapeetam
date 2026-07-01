@@ -3,6 +3,7 @@ layout: base.njk
 title: నమోదు నిర్ధారణ | Booking Confirmation - Krutya Pratangira Tantrika Peetam
 navPage: payment
 permalink: payment.html
+needsPaymentConfirm: true
 ---
 <div class="payment-wrap">
   <div class="payment-card">
@@ -14,9 +15,66 @@ permalink: payment.html
       <!-- Filled in by JS -->
     </div>
 
+    <!-- QR PAYMENT -->
+    <div class="qr-box" id="qrBox">
+      <h3><span class="te">QR స్కాన్ చేసి చెల్లించండి</span><span class="en">Scan the QR to Pay</span></h3>
+      <img src="images/payment-qr.jpg" alt="Payment QR Code" class="qr-image" onerror="this.replaceWith(Object.assign(document.createElement('div'), {className: 'qr-placeholder', innerHTML: '📱 QR CODE COMING SOON'}))">
+      <p class="qr-ref te">మీ నమోదు రిఫరెన్స్: <strong id="qrRefTe"></strong></p>
+      <p class="qr-ref en">Your Booking Reference: <strong id="qrRefEn"></strong></p>
+
+      <div class="payment-timer" id="paymentTimer">
+        <span class="te">చెల్లింపు నిర్ధారణ ఫారం ఇందులో కనిపిస్తుంది: </span><span class="en">Confirmation form appears in: </span><strong id="timerDisplay">5:00</strong>
+      </div>
+
+      <button class="submit-btn payment-done-btn" id="paymentDoneBtn" onclick="revealConfirmForm()">
+        <span class="te">✅ చెల్లింపు పూర్తయింది</span>
+        <span class="en">✅ Payment Done</span>
+      </button>
+    </div>
+
+    <!-- PAYMENT CONFIRMATION FORM (hidden until timer/button) -->
+    <div class="form-grid confirm-form" id="confirmForm" style="display:none;">
+      <h3 class="form-group full" style="margin:0;">
+        <span class="te">చెల్లింపు వివరాలు నమోదు చేయండి</span><span class="en">Confirm Your Payment</span>
+      </h3>
+      <div class="form-group full">
+        <label>
+          <span class="label-te">UPI ట్రాన్సాక్షన్ / రిఫరెన్స్ నంబర్ *</span>
+          <span class="en" style="color:var(--ash);font-size:11px;letter-spacing:0.8px;text-transform:uppercase;">UPI Transaction / Reference Number *</span>
+        </label>
+        <input type="text" id="transactionRef" placeholder="e.g. 123456789012" required>
+      </div>
+      <div class="form-group full">
+        <label>
+          <span class="label-te">చెల్లింపు స్క్రీన్‌షాట్ అప్‌లోడ్ చేయండి *</span>
+          <span class="en" style="color:var(--ash);font-size:11px;letter-spacing:0.8px;text-transform:uppercase;">Upload Payment Screenshot *</span>
+        </label>
+        <input type="file" id="screenshotFile" accept="image/*" required>
+      </div>
+      <div class="form-group full">
+        <label>
+          <span class="label-te">గమనికలు (ఐచ్ఛికం)</span>
+          <span class="en" style="color:var(--ash);font-size:11px;letter-spacing:0.8px;text-transform:uppercase;">Notes (Optional)</span>
+        </label>
+        <input type="text" id="confirmNotes" placeholder="ఏదైనా ప్రత్యేక విషయాలు / Any special notes...">
+      </div>
+
+      <button class="submit-btn" id="confirmSubmitBtn" onclick="submitPaymentConfirmation()">
+        <span class="te">🙏 నిర్ధారణ పంపండి</span>
+        <span class="en">🙏 Submit Confirmation</span>
+      </button>
+
+      <div class="error-msg" id="confirmErrorMsg"></div>
+    </div>
+
+    <div class="success-msg" id="confirmSuccessMsg" style="display:none;">
+      ✅ <span class="te">ధన్యవాదాలు! మీ చెల్లింపు నిర్ధారణ అందింది, మా బృందం త్వరలో దీన్ని పరిశీలిస్తుంది.</span>
+      <span class="en">Thank you! Your payment confirmation has been received and our team will verify it shortly.</span>
+    </div>
+
     <div class="pending-note">
-      <span class="te">💰 చెల్లింపు కోసం మా బృందం త్వరలో మీకు ఫోన్ ద్వారా సంప్రదిస్తుంది. ఏవైనా సందేహాలుంటే <strong>📞 6303701032</strong> కి కాల్ చేయండి.</span>
-      <span class="en">💰 Our team will contact you by phone shortly to collect the payment. For any queries, call <strong>📞 6303701032</strong>.</span>
+      <span class="te">💰 ఏవైనా సందేహాలుంటే <strong>📞 6303701032</strong> కి కాల్ చేయండి లేదా <strong>💬 WhatsApp: 9014957203</strong> కి సందేశం పంపండి.</span>
+      <span class="en">💰 For any queries, call <strong>📞 6303701032</strong> or message us on <strong>💬 WhatsApp: 9014957203</strong>.</span>
     </div>
 
     <div class="text-center">
@@ -43,6 +101,9 @@ permalink: payment.html
     const booking = JSON.parse(raw);
 
     let rows = '';
+    if (booking.booking_ref) {
+      rows += `<div class="summary-row"><span class="k">రిఫరెన్స్ / Reference</span><span class="v">${esc(booking.booking_ref)}</span></div>`;
+    }
     rows += `<div class="summary-row"><span class="k">పేరు / Name</span><span class="v">${esc(booking.name)}</span></div>`;
     rows += `<div class="summary-row"><span class="k">మొబైల్ / Phone</span><span class="v">${esc(booking.phone)}</span></div>`;
     if (booking.city) {

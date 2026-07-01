@@ -23,7 +23,8 @@ async function submitDonation() {
     participation_type: 'Donation',
     services: [],
     total_amount: amount,
-    notes: notes || null
+    notes: notes || null,
+    booking_ref: generateBookingRef()
   };
 
   submitBtn.disabled = true;

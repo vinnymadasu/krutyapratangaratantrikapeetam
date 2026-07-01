@@ -4,6 +4,12 @@ if ('serviceWorker' in navigator) {
   });
 }
 
+function generateBookingRef() {
+  const time = Date.now().toString(36).toUpperCase();
+  const rand = Math.random().toString(36).slice(2, 6).toUpperCase();
+  return `KP-${time}-${rand}`;
+}
+
 function setLang(lang) {
   document.body.className = 'lang-' + lang;
   document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));

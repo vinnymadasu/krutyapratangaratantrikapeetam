@@ -21,7 +21,8 @@ async function submitServiceBooking() {
     participation_type: serviceEn,
     services: [{ name_te: serviceTe, name_en: serviceEn, price }],
     total_amount: price,
-    notes: notes || null
+    notes: notes || null,
+    booking_ref: generateBookingRef()
   };
 
   submitBtn.disabled = true;

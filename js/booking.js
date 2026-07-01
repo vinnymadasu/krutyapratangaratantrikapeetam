@@ -35,7 +35,8 @@ async function submitBooking() {
     participation_type: participationLabel,
     services,
     total_amount: totalAmount,
-    notes: notes || null
+    notes: notes || null,
+    booking_ref: generateBookingRef()
   };
 
   submitBtn.disabled = true;
