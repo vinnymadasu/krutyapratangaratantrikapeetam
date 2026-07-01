@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Daily Food Donation (Nitya Annadanam) | Krutya Pratangira Tantrika Peetam</title>
+<title>విరాళం సమర్పించండి | Make a Donation - Krutya Pratangira Tantrika Peetam</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Telugu:wght@400;600;700&family=Noto+Sans+Telugu:wght@300;400;600&family=Cinzel+Decorative:wght@400;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
 <link rel="stylesheet" href="css/style.css">
@@ -31,10 +31,10 @@
     <div class="nav-links">
       <a href="index.html" class="nav-link"><span class="te">హోమ్</span><span class="en">Home</span></a>
       <a href="about.html" class="nav-link"><span class="te">గురించి</span><span class="en">About</span></a>
-      <a href="services.html" class="nav-link active"><span class="te">సేవలు</span><span class="en">Services</span></a>
+      <a href="services.html" class="nav-link"><span class="te">సేవలు</span><span class="en">Services</span></a>
       <a href="gallery.html" class="nav-link"><span class="te">గ్యాలరీ</span><span class="en">Gallery</span></a>
       <a href="contact.html" class="nav-link"><span class="te">సంప్రదించండి</span><span class="en">Contact</span></a>
-      <a href="donate.html" class="nav-link"><span class="te">విరాళం</span><span class="en">Donate</span></a>
+      <a href="donate.html" class="nav-link active"><span class="te">విరాళం</span><span class="en">Donate</span></a>
       <a href="booking.html" class="nav-link nav-cta">🙏 <span class="te">నమోదు చేయండి</span><span class="en">Book Now</span></a>
     </div>
     <div class="nav-socials">
@@ -73,45 +73,36 @@
 
 <main>
 
-  <!-- SERVICE DETAILS -->
+  <!-- DONATION INFO -->
   <section>
     <div class="section-header">
-      <div class="section-icon">🌺</div>
+      <div class="section-icon">🙏</div>
       <div class="section-heading">
-        <span class="te">నిత్య అన్నదానం</span>
-        <span class="en">Daily Food Donation (Nitya Annadanam)</span>
+        <span class="te">విరాళం సమర్పించండి</span>
+        <span class="en">Make a Donation</span>
       </div>
       <div class="section-rule"></div>
     </div>
 
-    <div class="service-card" style="cursor:default; max-width:460px; margin-bottom:18px;">
-      <div class="price">₹15,000/- <span>/ రోజు</span></div>
-      <div class="name-te">నిత్య అన్నదానం</div>
-      <div class="name-en">Daily Food Donation (Nitya Annadanam)</div>
-      <div class="tag tag-annadana">అన్నదానం</div>
-    </div>
-
     <div class="diksha-card">
-      <p class="te">ఆలయాన్ని సందర్శించే భక్తులకు, నిరుపేదలకు ఉచిత భోజన వసతి కల్పించే పుణ్యకార్యం.</p>
-      <p class="en">A meritorious donation providing free meals to devotees and the needy who visit the temple.</p>
+      <p class="te">మీ స్వచ్ఛంద విరాళం అమ్మవారి నిత్య పూజలు, హోమాలు, అన్నదానం మరియు ఆలయ కార్యక్రమాల నిర్వహణ కోసం వినియోగించబడుతుంది. మీరు ఇష్టపడిన మొత్తాన్ని సమర్పించవచ్చు — కనీస విరాళం <strong>₹21</strong>.</p>
+      <p class="en">Your voluntary donation supports the Goddess's daily pujas, homams, annadanam, and temple activities. You may contribute any amount you wish — the minimum donation is <strong>₹21</strong>.</p>
     </div>
 
-    <p class="teaser-link">
-      <a href="services.html" class="directions-link"><span class="te">← అన్ని సేవలకు తిరిగి వెళ్ళండి</span><span class="en">← Back to All Services</span></a>
-    </p>
+    <div class="notice-box">
+      <span class="te">💳 ప్రస్తుతం చెల్లింపు గేట్‌వే అనుసంధానం జరుగుతోంది. నమోదు తర్వాత మా బృందం చెల్లింపు కోసం మిమ్మల్ని సంప్రదిస్తుంది.</span>
+      <span class="en">💳 Online payment gateway integration is in progress. After you register, our team will contact you to collect the payment.</span>
+    </div>
   </section>
 
-  <!-- BOOKING FORM -->
+  <!-- DONATION FORM -->
   <section>
     <div class="booking-section">
-      <h2>🪷 <span class="te">ఈ సేవను నమోదు చేసుకోండి</span><span class="en">Book This Seva</span></h2>
+      <h2>🪷 <span class="te">విరాళం నమోదు చేయండి</span><span class="en">Register Your Donation</span></h2>
       <p class="sub te">దయచేసి మీ వివరాలు నమోదు చేయండి</p>
-      <p class="sub en">Please fill in your details to register</p>
+      <p class="sub en">Please fill in your details</p>
 
-      <div class="form-grid" id="bookingForm"
-           data-service-te="నిత్య అన్నదానం"
-           data-service-en="Daily Food Donation (Nitya Annadanam)"
-           data-price="15000">
+      <div class="form-grid" id="donationForm">
         <div class="form-group">
           <label>
             <span class="label-te">మీ పేరు *</span>
@@ -128,34 +119,29 @@
         </div>
         <div class="form-group">
           <label>
-            <span class="label-te">మీ ఊరు / నగరం</span>
-            <span class="en" style="color:var(--ash);font-size:11px;letter-spacing:0.8px;text-transform:uppercase;">City / Town</span>
+            <span class="label-te">విరాళం మొత్తం (కనీసం ₹21) *</span>
+            <span class="en" style="color:var(--ash);font-size:11px;letter-spacing:0.8px;text-transform:uppercase;">Donation Amount (Minimum ₹21) *</span>
           </label>
-          <input type="text" id="city" placeholder="City">
+          <input type="number" id="amount" min="21" step="1" placeholder="₹21" required>
         </div>
         <div class="form-group">
           <label>
-            <span class="label-te">గమనికలు / ప్రత్యేక అభ్యర్థనలు</span>
-            <span class="en" style="color:var(--ash);font-size:11px;letter-spacing:0.8px;text-transform:uppercase;">Notes / Special Requests</span>
+            <span class="label-te">గమనికలు (ఐచ్ఛికం)</span>
+            <span class="en" style="color:var(--ash);font-size:11px;letter-spacing:0.8px;text-transform:uppercase;">Notes (Optional)</span>
           </label>
           <input type="text" id="notes" placeholder="ఏదైనా ప్రత్యేక విషయాలు / Any special notes...">
         </div>
 
-        <div class="amount-summary">
-          <span class="label-te">మొత్తం / Total Amount:</span>
-          <span class="total">₹15,000/-</span>
-        </div>
-
-        <button class="submit-btn" id="submitBtn" onclick="submitServiceBooking()">
-          <span class="te">🙏 నమోదు చేయండి</span>
-          <span class="en">🙏 Register Now</span>
+        <button class="submit-btn" id="submitBtn" onclick="submitDonation()">
+          <span class="te">🙏 విరాళం నమోదు చేయండి</span>
+          <span class="en">🙏 Register Donation</span>
         </button>
 
         <div class="error-msg" id="errorMsg"></div>
 
         <div class="success-msg" id="successMsg">
-          ✅ <span class="te">మీ నమోదు విజయవంతమైంది! మా బృందం మీకు త్వరలో సంప్రదిస్తుంది. 📞 6303701032</span>
-          <span class="en">Your registration is successful! Our team will contact you soon. 📞 6303701032</span>
+          ✅ <span class="te">మీ విరాళం నమోదు విజయవంతమైంది! మా బృందం మీకు త్వరలో సంప్రదిస్తుంది. 📞 6303701032</span>
+          <span class="en">Your donation registration is successful! Our team will contact you soon. 📞 6303701032</span>
         </div>
       </div>
     </div>
@@ -193,7 +179,7 @@
 <script src="js/supabase-config.js"></script>
 <script src="js/site.js"></script>
 
-<script src="js/service-booking.js"></script>
 
+<script src="js/donation.js"></script>
 </body>
 </html>

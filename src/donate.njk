@@ -1,0 +1,84 @@
+---
+layout: base.njk
+title: విరాళం సమర్పించండి | Make a Donation - Krutya Pratangira Tantrika Peetam
+navPage: donate
+permalink: donate.html
+needsDonation: true
+---
+<main>
+
+  <!-- DONATION INFO -->
+  <section>
+    <div class="section-header">
+      <div class="section-icon">🙏</div>
+      <div class="section-heading">
+        <span class="te">విరాళం సమర్పించండి</span>
+        <span class="en">Make a Donation</span>
+      </div>
+      <div class="section-rule"></div>
+    </div>
+
+    <div class="diksha-card">
+      <p class="te">మీ స్వచ్ఛంద విరాళం అమ్మవారి నిత్య పూజలు, హోమాలు, అన్నదానం మరియు ఆలయ కార్యక్రమాల నిర్వహణ కోసం వినియోగించబడుతుంది. మీరు ఇష్టపడిన మొత్తాన్ని సమర్పించవచ్చు — కనీస విరాళం <strong>₹21</strong>.</p>
+      <p class="en">Your voluntary donation supports the Goddess's daily pujas, homams, annadanam, and temple activities. You may contribute any amount you wish — the minimum donation is <strong>₹21</strong>.</p>
+    </div>
+
+    <div class="notice-box">
+      <span class="te">💳 ప్రస్తుతం చెల్లింపు గేట్‌వే అనుసంధానం జరుగుతోంది. నమోదు తర్వాత మా బృందం చెల్లింపు కోసం మిమ్మల్ని సంప్రదిస్తుంది.</span>
+      <span class="en">💳 Online payment gateway integration is in progress. After you register, our team will contact you to collect the payment.</span>
+    </div>
+  </section>
+
+  <!-- DONATION FORM -->
+  <section>
+    <div class="booking-section">
+      <h2>🪷 <span class="te">విరాళం నమోదు చేయండి</span><span class="en">Register Your Donation</span></h2>
+      <p class="sub te">దయచేసి మీ వివరాలు నమోదు చేయండి</p>
+      <p class="sub en">Please fill in your details</p>
+
+      <div class="form-grid" id="donationForm">
+        <div class="form-group">
+          <label>
+            <span class="label-te">మీ పేరు *</span>
+            <span class="en" style="color:var(--ash);font-size:11px;letter-spacing:0.8px;text-transform:uppercase;">Full Name *</span>
+          </label>
+          <input type="text" id="name" placeholder="పేరు నమోదు చేయండి / Enter name" required>
+        </div>
+        <div class="form-group">
+          <label>
+            <span class="label-te">మొబైల్ నంబర్ *</span>
+            <span class="en" style="color:var(--ash);font-size:11px;letter-spacing:0.8px;text-transform:uppercase;">Mobile Number *</span>
+          </label>
+          <input type="tel" id="phone" placeholder="10 అంకెలు / 10 digits" maxlength="10" required>
+        </div>
+        <div class="form-group">
+          <label>
+            <span class="label-te">విరాళం మొత్తం (కనీసం ₹21) *</span>
+            <span class="en" style="color:var(--ash);font-size:11px;letter-spacing:0.8px;text-transform:uppercase;">Donation Amount (Minimum ₹21) *</span>
+          </label>
+          <input type="number" id="amount" min="21" step="1" placeholder="₹21" required>
+        </div>
+        <div class="form-group">
+          <label>
+            <span class="label-te">గమనికలు (ఐచ్ఛికం)</span>
+            <span class="en" style="color:var(--ash);font-size:11px;letter-spacing:0.8px;text-transform:uppercase;">Notes (Optional)</span>
+          </label>
+          <input type="text" id="notes" placeholder="ఏదైనా ప్రత్యేక విషయాలు / Any special notes...">
+        </div>
+
+        <button class="submit-btn" id="submitBtn" onclick="submitDonation()">
+          <span class="te">🙏 విరాళం నమోదు చేయండి</span>
+          <span class="en">🙏 Register Donation</span>
+        </button>
+
+        <div class="error-msg" id="errorMsg"></div>
+
+        <div class="success-msg" id="successMsg">
+          ✅ <span class="te">మీ విరాళం నమోదు విజయవంతమైంది! మా బృందం మీకు త్వరలో సంప్రదిస్తుంది. 📞 6303701032</span>
+          <span class="en">Your donation registration is successful! Our team will contact you soon. 📞 6303701032</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
