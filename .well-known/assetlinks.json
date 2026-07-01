@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "online.krutyapratangaratantrikapeetam.app",
+      "sha256_cert_fingerprints": [
+        "24:5C:B8:D0:C0:E4:8D:3D:D4:EE:D1:11:7F:62:4A:75:98:BD:1A:7E:69:9A:70:80:57:37:BA:7D:08:52:42:0C"
+      ]
+    }
+  }
+]

@@ -1,0 +1,17 @@
+{
+  "name": "Shri Krutya Pratangira Tantrika Peetam",
+  "short_name": "Krutya Peetam",
+  "description": "Seva booking, Diksha details, and Peetam information for Shri Krutya Pratangira Tantrika Peetam, Hyderabad.",
+  "start_url": "/index.html",
+  "id": "/index.html",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#FDF8EE",
+  "theme_color": "#5C0000",
+  "lang": "te",
+  "icons": [
+    { "src": "assets/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "assets/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "assets/icon-512-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
