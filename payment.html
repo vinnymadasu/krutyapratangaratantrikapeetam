@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>నమోదు నిర్ధారణ | Booking Confirmation - Krutya Pratangira Tantrika Peetam</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Telugu:wght@400;600;700&family=Noto+Sans+Telugu:wght@300;400;600&family=Cinzel+Decorative:wght@400;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="lang-te">
+
+<!-- Language Bar -->
+<div class="lang-bar">
+  <span>భాష / Language:</span>
+  <button class="lang-btn active" onclick="setLang('te')">తెలుగు</button>
+  <button class="lang-btn" onclick="setLang('en')">English</button>
+</div>
+
+<!-- Header -->
+<header>
+  <div class="header-inner">
+    <div class="om-symbol">ॐ</div>
+    <div class="peetam-name-te">శ్రీ కృత్య ప్రత్యంగిర తాంత్రిక పీఠం</div>
+    <div class="peetam-name-en">Shri Krutya Pratangira Tantrika Peetam</div>
+  </div>
+</header>
+
+<div class="payment-wrap">
+  <div class="payment-card">
+    <h2>🪷 <span class="te">నమోదు నిర్ధారణ</span><span class="en">Booking Confirmation</span></h2>
+    <p class="sub te">మీ వివరాలు విజయవంతంగా నమోదు చేయబడ్డాయి</p>
+    <p class="sub en">Your details have been saved successfully</p>
+
+    <div class="summary-box" id="summaryBox">
+      <!-- Filled in by JS -->
+    </div>
+
+    <div class="pending-note">
+      <span class="te">💰 చెల్లింపు కోసం మా బృందం త్వరలో మీకు ఫోన్ ద్వారా సంప్రదిస్తుంది. ఏవైనా సందేహాలుంటే <strong>📞 6303701032</strong> కి కాల్ చేయండి.</span>
+      <span class="en">💰 Our team will contact you by phone shortly to collect the payment. For any queries, call <strong>📞 6303701032</strong>.</span>
+    </div>
+
+    <div style="text-align:center;">
+      <a class="back-link" href="index.html">&larr; <span class="te">హోమ్‌కి తిరిగి వెళ్ళండి</span><span class="en">Back to Home</span></a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  © 2026 శ్రీ కృత్య ప్రత్యంగిర తాంత్రిక పీఠం | Shri Krutya Pratangira Tantrika Peetam, Hyderabad &nbsp;|&nbsp; 🔱 జయ వారాహి మాత 🔱
+</footer>
+
+<script>
+  function setLang(lang) {
+    document.body.className = 'lang-' + lang;
+    document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      if (btn.textContent.trim() === (lang === 'te' ? 'తెలుగు' : 'English')) btn.classList.add('active');
+    });
+  }
+
+  function esc(str) {
+    const div = document.createElement('div');
+    div.textContent = str == null ? '' : String(str);
+    return div.innerHTML;
+  }
+
+  (function renderSummary() {
+    const raw = sessionStorage.getItem('krutyaBooking');
+    const box = document.getElementById('summaryBox');
+    if (!raw) {
+      box.innerHTML = '<p class="te" style="color:var(--ash);">నమోదు వివరాలు కనబడలేదు. దయచేసి ఫారం మళ్ళీ నింపండి.</p>' +
+                      '<p class="en" style="color:var(--ash);">No booking details found. Please fill the form again.</p>';
+      return;
+    }
+    const booking = JSON.parse(raw);
+
+    let rows = '';
+    rows += `<div class="summary-row"><span class="k">పేరు / Name</span><span class="v">${esc(booking.name)}</span></div>`;
+    rows += `<div class="summary-row"><span class="k">మొబైల్ / Phone</span><span class="v">${esc(booking.phone)}</span></div>`;
+    if (booking.city) {
+      rows += `<div class="summary-row"><span class="k">ఊరు / City</span><span class="v">${esc(booking.city)}</span></div>`;
+    }
+    rows += `<div class="summary-row"><span class="k">పాల్గొనే విధానం / Participation</span><span class="v">${esc(booking.participation_type)}</span></div>`;
+
+    if (booking.services && booking.services.length) {
+      const names = booking.services.map(s => (document.body.className === 'lang-en' ? s.name_en : s.name_te)).join(', ');
+      rows += `<div class="summary-row"><span class="k">అదనపు సేవలు / Extra Sevas</span><span class="v">${esc(names)}</span></div>`;
+    }
+    if (booking.notes) {
+      rows += `<div class="summary-row"><span class="k">గమనికలు / Notes</span><span class="v">${esc(booking.notes)}</span></div>`;
+    }
+    rows += `<div class="summary-row total-row"><span class="k">మొత్తం / Total Amount</span><span class="v">₹${Number(booking.total_amount).toLocaleString('en-IN')}/-</span></div>`;
+
+    box.innerHTML = rows;
+  })();
+</script>
+</body>
+</html>

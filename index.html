@@ -5,539 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>కృత్య ప్రత్యంగిర తాంత్రిక పీఠం | Krutya Pratangira Tantrika Peetam</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Telugu:wght@400;600;700&family=Noto+Sans+Telugu:wght@300;400;600&family=Cinzel+Decorative:wght@400;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --crimson: #8B0000;
-    --deep-crimson: #5C0000;
-    --gold: #C9922A;
-    --bright-gold: #F0C040;
-    --ivory: #FDF8EE;
-    --warm-dark: #1A0A00;
-    --saffron: #FF6B00;
-    --ash: #E8E0D0;
-    --text-dark: #2A1200;
-    --text-mid: #5A3A1A;
-  }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  body {
-    font-family: 'Noto Sans Telugu', 'Lora', serif;
-    background: var(--ivory);
-    color: var(--text-dark);
-    overflow-x: hidden;
-  }
-
-  /* ── LANGUAGE TOGGLE ── */
-  .lang-bar {
-    background: var(--deep-crimson);
-    padding: 8px 24px;
-    display: flex;
-    justify-content: flex-end;
-    gap: 8px;
-    align-items: center;
-  }
-  .lang-bar span { color: var(--ash); font-size: 12px; letter-spacing: 1px; }
-  .lang-btn {
-    background: transparent;
-    border: 1px solid var(--gold);
-    color: var(--gold);
-    padding: 4px 14px;
-    border-radius: 2px;
-    cursor: pointer;
-    font-size: 12px;
-    letter-spacing: 1px;
-    transition: all 0.2s;
-  }
-  .lang-btn.active, .lang-btn:hover {
-    background: var(--gold);
-    color: var(--deep-crimson);
-    font-weight: 700;
-  }
-
-  /* ── HEADER ── */
-  header {
-    background: linear-gradient(160deg, var(--deep-crimson) 0%, var(--crimson) 60%, #A01010 100%);
-    padding: 0;
-    position: relative;
-    overflow: hidden;
-  }
-  header::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C9922A' fill-opacity='0.08'%3E%3Cpath d='M30 0l8.66 15H21.34L30 0zM30 60l-8.66-15h17.32L30 60zM0 30l15-8.66v17.32L0 30zM60 30L45 38.66V21.34L60 30z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    opacity: 0.4;
-  }
-
-  .header-inner {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 36px 24px 28px;
-    text-align: center;
-  }
-
-  .om-symbol {
-    font-size: 52px;
-    color: var(--bright-gold);
-    line-height: 1;
-    margin-bottom: 10px;
-    filter: drop-shadow(0 0 16px rgba(240,192,64,0.5));
-    animation: pulse-glow 3s ease-in-out infinite;
-  }
-  @keyframes pulse-glow {
-    0%, 100% { filter: drop-shadow(0 0 12px rgba(240,192,64,0.4)); }
-    50% { filter: drop-shadow(0 0 28px rgba(240,192,64,0.9)); }
-  }
-
-  .peetam-name-te {
-    font-family: 'Noto Serif Telugu', serif;
-    font-size: clamp(22px, 5vw, 34px);
-    font-weight: 700;
-    color: var(--bright-gold);
-    line-height: 1.3;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
-    margin-bottom: 4px;
-  }
-  .peetam-name-en {
-    font-family: 'Cinzel Decorative', serif;
-    font-size: clamp(11px, 2.5vw, 16px);
-    color: var(--ash);
-    letter-spacing: 2px;
-    margin-bottom: 12px;
-    opacity: 0.85;
-  }
-
-  .guru-name {
-    background: rgba(201,146,42,0.15);
-    border: 1px solid rgba(201,146,42,0.4);
-    border-radius: 4px;
-    padding: 6px 20px;
-    margin-bottom: 10px;
-  }
-  .guru-name .te { font-size: 13px; color: var(--bright-gold); font-family: 'Noto Serif Telugu', serif; }
-  .guru-name .en { font-size: 11px; color: var(--ash); opacity: 0.8; letter-spacing: 0.5px; }
-
-  .location-tag {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    color: var(--ash);
-    font-size: 13px;
-    opacity: 0.8;
-  }
-  .location-tag svg { width: 14px; height: 14px; fill: var(--gold); flex-shrink: 0; }
-
-  /* ── DIVIDER ── */
-  .mandala-divider {
-    text-align: center;
-    color: var(--gold);
-    font-size: 20px;
-    letter-spacing: 12px;
-    padding: 20px 0 8px;
-    opacity: 0.6;
-  }
-
-  /* ── FESTIVAL BANNER ── */
-  .festival-banner {
-    background: linear-gradient(135deg, var(--warm-dark) 0%, #2D0A00 100%);
-    border-top: 3px solid var(--gold);
-    border-bottom: 3px solid var(--gold);
-    padding: 28px 24px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .festival-banner::before {
-    content: '🔱';
-    position: absolute;
-    left: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 40px;
-    opacity: 0.15;
-  }
-  .festival-banner::after {
-    content: '🔱';
-    position: absolute;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 40px;
-    opacity: 0.15;
-  }
-
-  .festival-title-te {
-    font-family: 'Noto Serif Telugu', serif;
-    font-size: clamp(20px, 5vw, 30px);
-    font-weight: 700;
-    color: var(--bright-gold);
-    margin-bottom: 4px;
-  }
-  .festival-title-en {
-    font-family: 'Cinzel Decorative', serif;
-    font-size: clamp(12px, 3vw, 17px);
-    color: var(--gold);
-    letter-spacing: 1px;
-    margin-bottom: 16px;
-  }
-  .dates-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: var(--crimson);
-    border: 1px solid var(--gold);
-    border-radius: 4px;
-    padding: 8px 20px;
-    color: var(--ivory);
-    font-size: 14px;
-  }
-  .dates-badge strong { color: var(--bright-gold); font-size: 16px; }
-
-  /* ── MAIN LAYOUT ── */
-  main { max-width: 960px; margin: 0 auto; padding: 0 16px; }
-
-  section { padding: 40px 0 20px; }
-  section + section { border-top: 1px solid rgba(201,146,42,0.2); }
-
-  .section-header {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 24px;
-  }
-  .section-icon { font-size: 28px; flex-shrink: 0; }
-  .section-heading {
-    flex: 1;
-  }
-  .section-heading .te {
-    font-family: 'Noto Serif Telugu', serif;
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--crimson);
-    display: block;
-    line-height: 1.3;
-  }
-  .section-heading .en {
-    font-size: 12px;
-    color: var(--text-mid);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    display: block;
-  }
-  .section-rule { flex: 1; height: 1px; background: linear-gradient(to right, var(--gold), transparent); }
-
-  /* ── DIKSHA CARD ── */
-  .diksha-card {
-    background: linear-gradient(135deg, #FFF8EE 0%, #FFF2D8 100%);
-    border: 1px solid rgba(201,146,42,0.35);
-    border-left: 4px solid var(--crimson);
-    border-radius: 4px;
-    padding: 20px 24px;
-    margin-bottom: 16px;
-  }
-  .diksha-card h3 {
-    font-family: 'Noto Serif Telugu', serif;
-    font-size: 16px;
-    color: var(--crimson);
-    margin-bottom: 8px;
-  }
-  .diksha-card p { font-size: 14px; color: var(--text-mid); line-height: 1.8; }
-  .highlight-box {
-    background: var(--crimson);
-    color: var(--ivory);
-    padding: 12px 18px;
-    border-radius: 4px;
-    margin-top: 12px;
-    font-size: 14px;
-    line-height: 1.7;
-  }
-  .highlight-box strong { color: var(--bright-gold); }
-
-  .notice-box {
-    background: #FFF8E1;
-    border: 1px solid #F0C040;
-    border-left: 4px solid var(--saffron);
-    border-radius: 4px;
-    padding: 14px 18px;
-    margin-top: 12px;
-    font-size: 13px;
-    color: #5A3A00;
-    line-height: 1.7;
-  }
-
-  /* ── SERVICES GRID ── */
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 14px;
-  }
-  .service-card {
-    background: white;
-    border: 1px solid rgba(201,146,42,0.25);
-    border-radius: 6px;
-    padding: 18px;
-    transition: transform 0.2s, box-shadow 0.2s;
-    cursor: pointer;
-  }
-  .service-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 24px rgba(139,0,0,0.12);
-    border-color: var(--gold);
-  }
-  .service-card .price {
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--crimson);
-    font-family: 'Lora', serif;
-  }
-  .service-card .price span { font-size: 13px; color: var(--text-mid); font-weight: 400; }
-  .service-card .name-te {
-    font-family: 'Noto Serif Telugu', serif;
-    font-size: 14px;
-    color: var(--text-dark);
-    margin: 4px 0 2px;
-    line-height: 1.5;
-  }
-  .service-card .name-en {
-    font-size: 11px;
-    color: var(--text-mid);
-    letter-spacing: 0.5px;
-  }
-  .service-card .tag {
-    display: inline-block;
-    margin-top: 8px;
-    font-size: 10px;
-    padding: 2px 8px;
-    border-radius: 2px;
-    border: 1px solid;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-  }
-  .tag-homa { color: #B06000; border-color: #B06000; background: #FFF3E0; }
-  .tag-seva { color: #004D40; border-color: #004D40; background: #E0F2F1; }
-  .tag-annadana { color: #1A237E; border-color: #1A237E; background: #E8EAF6; }
-  .tag-rathotsavam { color: var(--deep-crimson); border-color: var(--deep-crimson); background: #FFEBEE; }
-
-  /* ── VAMACHARA NOTE ── */
-  .vama-note {
-    background: linear-gradient(135deg, #1A0A00 0%, #2D0A00 100%);
-    border: 1px solid rgba(201,146,42,0.4);
-    border-radius: 6px;
-    padding: 20px 24px;
-    color: var(--ash);
-    font-size: 14px;
-    line-height: 1.8;
-    margin-top: 16px;
-  }
-  .vama-note h4 { color: var(--bright-gold); font-family: 'Noto Serif Telugu', serif; font-size: 16px; margin-bottom: 8px; }
-
-  /* ── PARTICIPATION RULES ── */
-  .rules-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-  @media (max-width: 540px) { .rules-grid { grid-template-columns: 1fr; } }
-  .rule-card {
-    border: 1px solid rgba(201,146,42,0.25);
-    border-radius: 6px;
-    padding: 16px 18px;
-    background: #FFFBF4;
-  }
-  .rule-card .rule-icon { font-size: 28px; margin-bottom: 8px; }
-  .rule-card p { font-family: 'Noto Sans Telugu'; font-size: 13px; color: var(--text-mid); line-height: 1.8; }
-
-  /* ── BOOKING FORM ── */
-  .booking-section {
-    background: linear-gradient(160deg, var(--crimson) 0%, var(--deep-crimson) 100%);
-    border-radius: 8px;
-    padding: 32px 28px;
-    margin: 20px 0;
-  }
-  .booking-section h2 {
-    font-family: 'Noto Serif Telugu', serif;
-    font-size: 22px;
-    color: var(--bright-gold);
-    text-align: center;
-    margin-bottom: 4px;
-  }
-  .booking-section .sub {
-    text-align: center;
-    color: var(--ash);
-    font-size: 12px;
-    letter-spacing: 1px;
-    margin-bottom: 24px;
-    opacity: 0.8;
-  }
-
-  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-  @media (max-width: 600px) { .form-grid { grid-template-columns: 1fr; } }
-
-  .form-group { display: flex; flex-direction: column; gap: 4px; }
-  .form-group.full { grid-column: 1 / -1; }
-  label {
-    font-size: 11px;
-    color: var(--ash);
-    letter-spacing: 0.8px;
-    text-transform: uppercase;
-    opacity: 0.85;
-  }
-  .label-te {
-    font-family: 'Noto Sans Telugu';
-    font-size: 12px;
-    color: var(--bright-gold);
-    letter-spacing: 0;
-    text-transform: none;
-    display: block;
-    margin-bottom: 2px;
-    opacity: 1;
-  }
-  input, select, textarea {
-    background: rgba(255,255,255,0.1);
-    border: 1px solid rgba(201,146,42,0.4);
-    border-radius: 4px;
-    padding: 10px 12px;
-    color: white;
-    font-size: 14px;
-    font-family: 'Noto Sans Telugu', sans-serif;
-    transition: border-color 0.2s;
-    width: 100%;
-  }
-  input::placeholder, textarea::placeholder { color: rgba(255,255,255,0.4); }
-  input:focus, select:focus, textarea:focus {
-    outline: none;
-    border-color: var(--bright-gold);
-    background: rgba(255,255,255,0.15);
-  }
-  select option { background: var(--deep-crimson); color: white; }
-
-  .services-checkboxes {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 8px;
-    grid-column: 1 / -1;
-  }
-  .checkbox-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-    padding: 10px 12px;
-    border: 1px solid rgba(201,146,42,0.3);
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background 0.2s, border-color 0.2s;
-  }
-  .checkbox-item:hover { background: rgba(201,146,42,0.1); border-color: var(--gold); }
-  .checkbox-item input[type=checkbox] {
-    width: 16px;
-    height: 16px;
-    flex-shrink: 0;
-    margin-top: 2px;
-    accent-color: var(--bright-gold);
-    padding: 0;
-    border: none;
-  }
-  .checkbox-item .item-info { flex: 1; }
-  .checkbox-item .item-te { font-family: 'Noto Sans Telugu'; font-size: 13px; color: var(--ash); display: block; line-height: 1.4; }
-  .checkbox-item .item-price { font-size: 12px; color: var(--bright-gold); font-weight: 600; }
-
-  /* Summary box */
-  .amount-summary {
-    background: rgba(0,0,0,0.3);
-    border: 1px solid var(--gold);
-    border-radius: 4px;
-    padding: 14px 18px;
-    grid-column: 1 / -1;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .amount-summary .label-te { font-size: 16px; color: var(--ash); margin: 0; }
-  .amount-summary .total { font-size: 26px; font-weight: 700; color: var(--bright-gold); font-family: 'Lora'; }
-
-  .submit-btn {
-    width: 100%;
-    grid-column: 1 / -1;
-    background: linear-gradient(135deg, var(--gold) 0%, var(--bright-gold) 100%);
-    color: var(--deep-crimson);
-    border: none;
-    border-radius: 4px;
-    padding: 14px;
-    font-size: 16px;
-    font-weight: 700;
-    font-family: 'Noto Serif Telugu', serif;
-    cursor: pointer;
-    letter-spacing: 1px;
-    transition: all 0.2s;
-  }
-  .submit-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(240,192,64,0.4); }
-
-  /* ── SUCCESS MESSAGE ── */
-  .success-msg {
-    display: none;
-    background: #1B5E20;
-    color: white;
-    padding: 20px 24px;
-    border-radius: 6px;
-    text-align: center;
-    grid-column: 1 / -1;
-    font-family: 'Noto Serif Telugu', serif;
-    font-size: 16px;
-    line-height: 1.8;
-  }
-
-  /* ── CONTACT ── */
-  .contact-strip {
-    background: var(--warm-dark);
-    padding: 28px 24px;
-    text-align: center;
-    margin-top: 40px;
-  }
-  .contact-strip p { color: var(--ash); font-size: 14px; line-height: 2; }
-  .contact-strip .phone {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--crimson);
-    color: white;
-    padding: 10px 24px;
-    border-radius: 4px;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: 700;
-    margin-top: 12px;
-    letter-spacing: 1px;
-    transition: background 0.2s;
-  }
-  .contact-strip .phone:hover { background: var(--gold); color: var(--warm-dark); }
-
-  /* ── FOOTER ── */
-  footer {
-    background: var(--deep-crimson);
-    color: var(--ash);
-    text-align: center;
-    padding: 16px;
-    font-size: 12px;
-    opacity: 0.8;
-    letter-spacing: 0.5px;
-  }
-
-  /* ── LANG SWITCHING ── */
-  .te { display: block; }
-  .en { display: block; }
-  body.lang-en .te { display: none; }
-  body.lang-te .en { display: none; }
-
-  /* Combined inline te/en spans */
-  span.te, span.en { display: inline; }
-  body.lang-en span.te { display: none; }
-  body.lang-te span.en { display: none; }
-
-  @media (max-width: 480px) {
-    .booking-section { padding: 22px 14px; }
-    .service-card .price { font-size: 18px; }
-  }
-</style>
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body class="lang-te">
 
@@ -674,9 +142,9 @@
       </div>
       <!-- Prasada -->
       <div class="service-card">
-        <div class="price">500 <span>kg</span></div>
+        <div class="price">₹2,100/- <span>/ రోజు</span></div>
         <div class="name-te">నిత్య ప్రసాద దాతలు</div>
-        <div class="name-en">Daily Prasad Donors (500 kg)</div>
+        <div class="name-en">Daily Prasad Donors</div>
         <div class="tag tag-annadana">ప్రసాదం</div>
       </div>
       <!-- Rathotsavam -->
@@ -768,7 +236,7 @@
         </div>
         <div class="services-checkboxes">
           <label class="checkbox-item">
-            <input type="checkbox" value="5116" onchange="calcTotal()">
+            <input type="checkbox" value="5116" data-te="అలంకరణ సేవ (1 రోజు)" data-en="Decoration Seva (1 day)" onchange="calcTotal()">
             <div class="item-info">
               <span class="item-te">అలంకరణ సేవ (1 రోజు)</span>
               <span class="en" style="color:#ccc;font-size:11px;display:block;">Decoration Seva (1 day)</span>
@@ -776,7 +244,7 @@
             </div>
           </label>
           <label class="checkbox-item">
-            <input type="checkbox" value="3116" onchange="calcTotal()">
+            <input type="checkbox" value="3116" data-te="ఉదయం లక్ష్మీ వారాహి హోమం" data-en="Morning Lakshmi Varahi Homam" onchange="calcTotal()">
             <div class="item-info">
               <span class="item-te">ఉదయం లక్ష్మీ వారాహి హోమం</span>
               <span class="en" style="color:#ccc;font-size:11px;display:block;">Morning Lakshmi Varahi Homam</span>
@@ -784,7 +252,7 @@
             </div>
           </label>
           <label class="checkbox-item">
-            <input type="checkbox" value="3116" onchange="calcTotal()">
+            <input type="checkbox" value="3116" data-te="సాయంత్రం దశ మహా విద్య హోమం" data-en="Evening Dasha Maha Vidya Homam" onchange="calcTotal()">
             <div class="item-info">
               <span class="item-te">సాయంత్రం దశ మహా విద్య హోమం</span>
               <span class="en" style="color:#ccc;font-size:11px;display:block;">Evening Dasha Maha Vidya Homam</span>
@@ -792,7 +260,7 @@
             </div>
           </label>
           <label class="checkbox-item">
-            <input type="checkbox" value="15000" onchange="calcTotal()">
+            <input type="checkbox" value="15000" data-te="నిత్య అన్నదానం (1 రోజు)" data-en="Nitya Annadanam (1 day)" onchange="calcTotal()">
             <div class="item-info">
               <span class="item-te">నిత్య అన్నదానం (1 రోజు)</span>
               <span class="en" style="color:#ccc;font-size:11px;display:block;">Nitya Annadanam (1 day)</span>
@@ -800,7 +268,7 @@
             </div>
           </label>
           <label class="checkbox-item">
-            <input type="checkbox" value="1116" onchange="calcTotal()">
+            <input type="checkbox" value="1116" data-te="నిత్య పల్లకి సేవ (1 రోజు)" data-en="Nitya Pallaki Seva (1 day)" onchange="calcTotal()">
             <div class="item-info">
               <span class="item-te">నిత్య పల్లకి సేవ (1 రోజు)</span>
               <span class="en" style="color:#ccc;font-size:11px;display:block;">Nitya Pallaki Seva (1 day)</span>
@@ -808,7 +276,7 @@
             </div>
           </label>
           <label class="checkbox-item">
-            <input type="checkbox" value="51000" onchange="calcTotal()">
+            <input type="checkbox" value="51000" data-te="రథోత్సవం (కిరాత వారాహి రోజు)" data-en="Rathotsavam (Kirata Varahi Day)" onchange="calcTotal()">
             <div class="item-info">
               <span class="item-te">రథోత్సవం (కిరాత వారాహి రోజు)</span>
               <span class="en" style="color:#ccc;font-size:11px;display:block;">Rathotsavam (Kirata Varahi Day)</span>
@@ -833,10 +301,13 @@
         </div>
 
         <!-- Submit -->
-        <button class="submit-btn" onclick="submitBooking()">
+        <button class="submit-btn" id="submitBtn" onclick="submitBooking()">
           <span class="te">🙏 సేవ నమోదు చేయండి</span>
           <span class="en">🙏 Register for Seva</span>
         </button>
+
+        <!-- Error message -->
+        <div class="error-msg" id="errorMsg"></div>
 
         <!-- Success message -->
         <div class="success-msg" id="successMsg">
@@ -856,6 +327,11 @@
   <br>
   <a href="tel:6303701032" class="phone">📞 6303701032</a>
   <br><br>
+  <div class="social-links" style="display:flex; gap:20px; justify-content:center; flex-wrap:wrap;">
+    <a href="https://www.instagram.com/komanduriseshu?igsh=dWFnZWNvYXh4MmV5" target="_blank" rel="noopener noreferrer" style="color:var(--bright-gold); text-decoration:none; font-size:14px; letter-spacing:0.5px;">📷 Instagram</a>
+    <a href="https://www.youtube.com/@kruthyatvteleguoofficial" target="_blank" rel="noopener noreferrer" style="color:var(--bright-gold); text-decoration:none; font-size:14px; letter-spacing:0.5px;">▶️ YouTube</a>
+  </div>
+  <br>
   <p style="color:var(--gold); font-family:'Noto Serif Telugu'; font-size:14px;">శ్రీ కృత్య ప్రత్యంగిర తాంత్రిక పీఠం, నాదర్గుల్, హైదరాబాద్</p>
   <p style="font-size:12px; opacity:0.6; margin-top:4px;">Shri Krutya Pratangira Tantrika Peetam, Nadargul, Hyderabad</p>
 </div>
@@ -864,6 +340,7 @@
   © 2026 శ్రీ కృత్య ప్రత్యంగిర తాంత్రిక పీఠం | Shri Krutya Pratangira Tantrika Peetam, Hyderabad &nbsp;|&nbsp; 🔱 జయ వారాహి మాత 🔱
 </footer>
 
+<script src="js/supabase-config.js"></script>
 <script>
   function setLang(lang) {
     document.body.className = 'lang-' + lang;
@@ -883,13 +360,64 @@
     document.getElementById('totalAmount').textContent = '₹' + total.toLocaleString('en-IN') + '/-';
   }
 
-  function submitBooking() {
+  async function submitBooking() {
+    const errorMsg = document.getElementById('errorMsg');
+    const submitBtn = document.getElementById('submitBtn');
+    errorMsg.style.display = 'none';
+
     const name = document.getElementById('name').value.trim();
     const phone = document.getElementById('phone').value.trim();
+    const city = document.getElementById('city').value.trim();
+    const notes = document.getElementById('notes').value.trim();
+    const participationSelect = document.getElementById('participationType');
+    const participationType = participationSelect.value;
+    const participationLabel = participationSelect.selectedOptions[0].textContent.trim();
+
     if (!name) { alert('దయచేసి మీ పేరు నమోదు చేయండి / Please enter your name'); return; }
     if (!phone || phone.length < 10) { alert('దయచేసి సరైన మొబైల్ నంబర్ నమోదు చేయండి / Please enter a valid mobile number'); return; }
-    document.getElementById('successMsg').style.display = 'block';
-    document.getElementById('successMsg').scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+    const services = [];
+    document.querySelectorAll('.services-checkboxes input[type=checkbox]:checked').forEach(cb => {
+      services.push({ name_te: cb.dataset.te, name_en: cb.dataset.en, price: parseInt(cb.value) });
+    });
+    const totalAmount = parseInt(document.getElementById('totalAmount').textContent.replace(/[^0-9]/g, '')) || 0;
+
+    const booking = {
+      name, phone, city: city || null,
+      participation_type: participationLabel,
+      services,
+      total_amount: totalAmount,
+      notes: notes || null
+    };
+
+    submitBtn.disabled = true;
+
+    try {
+      const res = await fetch(`${SUPABASE_URL}/rest/v1/bookings`, {
+        method: 'POST',
+        headers: {
+          'apikey': SUPABASE_PUBLISHABLE_KEY,
+          'Authorization': `Bearer ${SUPABASE_PUBLISHABLE_KEY}`,
+          'Content-Type': 'application/json',
+          'Prefer': 'return=minimal'
+        },
+        body: JSON.stringify(booking)
+      });
+
+      if (!res.ok) {
+        const detail = await res.text();
+        throw new Error(detail || `Request failed with status ${res.status}`);
+      }
+
+      sessionStorage.setItem('krutyaBooking', JSON.stringify(booking));
+      window.location.href = 'payment.html';
+    } catch (err) {
+      console.error('Booking save failed:', err);
+      errorMsg.textContent = 'నమోదు విఫలమైంది, దయచేసి మళ్ళీ ప్రయత్నించండి / Registration failed, please try again.';
+      errorMsg.style.display = 'block';
+      errorMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      submitBtn.disabled = false;
+    }
   }
 </script>
 </body>
