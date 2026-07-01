@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <radialGradient id="bgGrad" cx="50%" cy="42%" r="65%">
+      <stop offset="0%" stop-color="#A01010"/>
+      <stop offset="55%" stop-color="#8B0000"/>
+      <stop offset="100%" stop-color="#5C0000"/>
+    </radialGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F0C040"/>
+      <stop offset="100%" stop-color="#C9922A"/>
+    </linearGradient>
+  </defs>
+
+  <circle cx="100" cy="100" r="96" fill="url(#bgGrad)" stroke="url(#goldGrad)" stroke-width="4"/>
+  <circle cx="100" cy="100" r="84" fill="none" stroke="url(#goldGrad)" stroke-width="1.5" opacity="0.6"/>
+
+  <!-- Petal ring -->
+  <g fill="none" stroke="url(#goldGrad)" stroke-width="1.5" opacity="0.55">
+    <path d="M100 8 L106 22 L100 36 L94 22 Z"/>
+    <path d="M100 192 L106 178 L100 164 L94 178 Z"/>
+    <path d="M8 100 L22 94 L36 100 L22 106 Z"/>
+    <path d="M192 100 L178 94 L164 100 L178 106 Z"/>
+    <path d="M35 35 L47 41 L53 53 L41 47 Z"/>
+    <path d="M165 35 L153 41 L147 53 L159 47 Z"/>
+    <path d="M35 165 L47 159 L53 147 L41 153 Z"/>
+    <path d="M165 165 L153 159 L147 147 L159 153 Z"/>
+  </g>
+
+  <!-- Om glyph -->
+  <text x="100" y="126" text-anchor="middle"
+        font-family="'Noto Sans Telugu','Noto Serif Telugu',serif"
+        font-size="92" fill="url(#goldGrad)">&#2384;</text>
+</svg>

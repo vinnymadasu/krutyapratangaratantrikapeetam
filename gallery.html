@@ -3,14 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>నమోదు నిర్ధారణ | Booking Confirmation - Krutya Pratangira Tantrika Peetam</title>
+<title>గ్యాలరీ | Gallery - Krutya Pratangira Tantrika Peetam</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Telugu:wght@400;600;700&family=Noto+Sans+Telugu:wght@300;400;600&family=Cinzel+Decorative:wght@400;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="lang-te">
 
-<!-- Language Bar -->
 <div class="lang-bar">
   <span>భాష / Language:</span>
   <button class="lang-btn active" onclick="setLang('te')">తెలుగు</button>
@@ -26,7 +25,7 @@
     <a href="index.html" class="nav-link"><span class="te">హోమ్</span><span class="en">Home</span></a>
     <a href="about.html" class="nav-link"><span class="te">గురించి</span><span class="en">About</span></a>
     <a href="services.html" class="nav-link"><span class="te">సేవలు</span><span class="en">Services</span></a>
-    <a href="gallery.html" class="nav-link"><span class="te">గ్యాలరీ</span><span class="en">Gallery</span></a>
+    <a href="gallery.html" class="nav-link active"><span class="te">గ్యాలరీ</span><span class="en">Gallery</span></a>
     <a href="contact.html" class="nav-link"><span class="te">సంప్రదించండి</span><span class="en">Contact</span></a>
     <a href="booking.html" class="nav-link nav-cta">🙏 <span class="te">నమోదు చేయండి</span><span class="en">Book Now</span></a>
   </div>
@@ -40,7 +39,6 @@
   </div>
 </nav>
 
-<!-- Header -->
 <header>
   <div class="header-inner">
     <div class="om-symbol">ॐ</div>
@@ -49,24 +47,39 @@
   </div>
 </header>
 
-<div class="payment-wrap">
-  <div class="payment-card">
-    <h2>🪷 <span class="te">నమోదు నిర్ధారణ</span><span class="en">Booking Confirmation</span></h2>
-    <p class="sub te">మీ వివరాలు విజయవంతంగా నమోదు చేయబడ్డాయి</p>
-    <p class="sub en">Your details have been saved successfully</p>
-
-    <div class="summary-box" id="summaryBox">
-      <!-- Filled in by JS -->
+<main>
+  <section>
+    <div class="section-header">
+      <div class="section-icon">🖼️</div>
+      <div class="section-heading">
+        <span class="te">గ్యాలరీ</span>
+        <span class="en">Gallery</span>
+      </div>
+      <div class="section-rule"></div>
     </div>
 
-    <div class="pending-note">
-      <span class="te">💰 చెల్లింపు కోసం మా బృందం త్వరలో మీకు ఫోన్ ద్వారా సంప్రదిస్తుంది. ఏవైనా సందేహాలుంటే <strong>📞 6303701032</strong> కి కాల్ చేయండి.</span>
-      <span class="en">💰 Our team will contact you by phone shortly to collect the payment. For any queries, call <strong>📞 6303701032</strong>.</span>
+    <div class="gallery-grid">
+      <div class="gallery-item" onclick="openLightbox('images/mantropadesha-poster.jpg')">
+        <img src="images/mantropadesha-poster.jpg" alt="Mantropadesha poster">
+      </div>
+      <div class="gallery-item placeholder">
+        <span class="te">మరిన్ని చిత్రాలు త్వరలో</span>
+        <span class="en">More photos coming soon</span>
+      </div>
+      <div class="gallery-item placeholder">
+        <span class="te">మరిన్ని చిత్రాలు త్వరలో</span>
+        <span class="en">More photos coming soon</span>
+      </div>
     </div>
+  </section>
+</main>
 
-    <div style="text-align:center;">
-      <a class="back-link" href="index.html">&larr; <span class="te">హోమ్‌కి తిరిగి వెళ్ళండి</span><span class="en">Back to Home</span></a>
-    </div>
+<div class="contact-strip">
+  <a href="tel:6303701032" class="phone">📞 6303701032</a>
+  <br><br>
+  <div class="social-links" style="display:flex; gap:20px; justify-content:center; flex-wrap:wrap;">
+    <a href="https://www.instagram.com/komanduriseshu?igsh=dWFnZWNvYXh4MmV5" target="_blank" rel="noopener noreferrer" style="color:var(--bright-gold); text-decoration:none; font-size:14px; letter-spacing:0.5px;">📷 Instagram</a>
+    <a href="https://www.youtube.com/@kruthyatvteleguoofficial" target="_blank" rel="noopener noreferrer" style="color:var(--bright-gold); text-decoration:none; font-size:14px; letter-spacing:0.5px;">▶️ YouTube</a>
   </div>
 </div>
 
@@ -74,43 +87,20 @@
   © 2026 శ్రీ కృత్య ప్రత్యంగిర తాంత్రిక పీఠం | Shri Krutya Pratangira Tantrika Peetam, Hyderabad &nbsp;|&nbsp; 🔱 జయ వారాహి మాత 🔱
 </footer>
 
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <img id="lightboxImg" src="" alt="Gallery image enlarged">
+</div>
+
 <script src="js/site.js"></script>
 <script>
-  function esc(str) {
-    const div = document.createElement('div');
-    div.textContent = str == null ? '' : String(str);
-    return div.innerHTML;
+  function openLightbox(src) {
+    document.getElementById('lightboxImg').src = src;
+    document.getElementById('lightbox').classList.add('open');
   }
-
-  (function renderSummary() {
-    const raw = sessionStorage.getItem('krutyaBooking');
-    const box = document.getElementById('summaryBox');
-    if (!raw) {
-      box.innerHTML = '<p class="te" style="color:var(--ash);">నమోదు వివరాలు కనబడలేదు. దయచేసి ఫారం మళ్ళీ నింపండి.</p>' +
-                      '<p class="en" style="color:var(--ash);">No booking details found. Please fill the form again.</p>';
-      return;
-    }
-    const booking = JSON.parse(raw);
-
-    let rows = '';
-    rows += `<div class="summary-row"><span class="k">పేరు / Name</span><span class="v">${esc(booking.name)}</span></div>`;
-    rows += `<div class="summary-row"><span class="k">మొబైల్ / Phone</span><span class="v">${esc(booking.phone)}</span></div>`;
-    if (booking.city) {
-      rows += `<div class="summary-row"><span class="k">ఊరు / City</span><span class="v">${esc(booking.city)}</span></div>`;
-    }
-    rows += `<div class="summary-row"><span class="k">పాల్గొనే విధానం / Participation</span><span class="v">${esc(booking.participation_type)}</span></div>`;
-
-    if (booking.services && booking.services.length) {
-      const names = booking.services.map(s => (document.body.className === 'lang-en' ? s.name_en : s.name_te)).join(', ');
-      rows += `<div class="summary-row"><span class="k">అదనపు సేవలు / Extra Sevas</span><span class="v">${esc(names)}</span></div>`;
-    }
-    if (booking.notes) {
-      rows += `<div class="summary-row"><span class="k">గమనికలు / Notes</span><span class="v">${esc(booking.notes)}</span></div>`;
-    }
-    rows += `<div class="summary-row total-row"><span class="k">మొత్తం / Total Amount</span><span class="v">₹${Number(booking.total_amount).toLocaleString('en-IN')}/-</span></div>`;
-
-    box.innerHTML = rows;
-  })();
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+  }
 </script>
 </body>
 </html>
